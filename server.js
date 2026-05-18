@@ -12,6 +12,9 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("Conectado Correctamente"))
 .catch(err => console.log(err));
 
+app.use("/", (req, res) => {
+    res.send("Bienvenidos");});
+
 app.use("/usuarios", require("./Rutas/usuarios"));
 app.use("/tareas", require("./Rutas/tareas"));
 app.use("/proyectos", require("./Rutas/proyectos"));
